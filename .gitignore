@@ -1,0 +1,11 @@
+# Python / browser testing
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+playwright-report/
+test-results/
+*.log
+.DS_Store
+Thumbs.db
