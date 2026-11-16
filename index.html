@@ -1,0 +1,316 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Signature Motion Lab v0.5</title><style>body{margin:0;background:#f0f0f0;padding:24px 14px;font:13px system-ui,sans-serif}#signature-lab-v05{background:#fafafa;border:1px solid #dedede;border-radius:6px;padding:24px;box-shadow:0 9px 40px #00000008}</style></head><body><div id="signature-lab-v05">
+<style>
+#signature-lab-v05{font:13px/1.4 system-ui,"Microsoft Yahei",Arial,sans-serif;color:#262626;max-width:1100px;margin:auto}#signature-lab-v05 *{box-sizing:border-box}#signature-lab-v05 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}#signature-lab-v05 h2{font-size:18px;line-height:1.25;margin:0}#signature-lab-v05 small{color:#808080;font-size:11px}#signature-lab-v05 .panel{background:#fff;border:1px solid #d8d8d8;border-radius:4px;overflow:hidden}#signature-lab-v05 #sig-view svg{display:block;width:100%;height:auto}#signature-lab-v05 .paper-top{display:flex;justify-content:space-between;letter-spacing:1px;font-size:10px;color:#aaa;padding:13px 17px 0}#signature-lab-v05 .paper-bot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #e5e5e5;margin:0 15px;padding:10px 0;color:#999;font-size:11px}#signature-lab-v05 .actions{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}#signature-lab-v05 button{background:#fff;color:#262626;border:1px solid #c8c8c8;border-radius:4px;padding:8px 11px;font:inherit;cursor:pointer}#signature-lab-v05 button:hover{background:#ececec}#signature-lab-v05 button.primary{background:#262626;color:#fff;border-color:#262626}#signature-lab-v05 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 20px;margin-top:14px}#signature-lab-v05 label{display:block;font-size:12px;color:#696969;margin-bottom:7px}#signature-lab-v05 input[type=text]{background:#fff;color:#222;border:1px solid #aaa;border-radius:3px;padding:9px 10px;font:inherit;width:100%;min-width:0}#signature-lab-v05 input[type=range]{width:100%;accent-color:#555}#signature-lab-v05 label span{float:right;color:#333;font-variant-numeric:tabular-nums}#signature-lab-v05 .toggles{display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #ddd;padding:15px 0 0;margin:16px 0 0}#signature-lab-v05 .toggles label{display:flex;align-items:center;gap:6px;margin:0;font-weight:500;color:#333}#signature-lab-v05 .examples{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:9px}#signature-lab-v05 .examples button{font-size:11px;padding:5px 8px;background:#f6f6f6}#signature-lab-v05 .sm{font-size:11px;color:#8a8a8a;margin-top:10px}#signature-lab-v05 .colorless{background:transparent}#signature-lab-v05 .namebox{margin:0 0 8px}#signature-lab-v05 .detail{padding-top:8px}@media(max-width:560px){#signature-lab-v05 .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px}#signature-lab-v05 .paper-bot{font-size:10px}}
+</style>
+<div class="top"><div><h2>Signature Motion Lab / v0.5</h2><small>连续流线 · 小回环保留 · 尾笔无缝接出</small></div><small id="sig-seed">S000</small></div>
+<div class="namebox"><label for="sig-name">签署人姓名 / SIGNATORY</label><input id="sig-name" type="text" value="Margie Golding" maxlength="60" spellcheck="false"><div class="examples"><small>测试姓名</small><button data-example="Alan Wake">Alan Wake</button><button data-example="Margie Golding">Margie Golding</button><button data-example="Jodie d'Angelo">Jodie d'Angelo</button><button data-example="McDonald">McDonald</button></div></div>
+<div class="panel"><div class="paper-top"><span>AUTHORIZED SIGNATURE / INK STUDY</span><span>V05</span></div><div id="sig-view" aria-live="polite"></div><div class="paper-bot"><span id="sig-nameprint">Alan Wake</span><span id="sig-metrics">—</span></div></div>
+<div class="actions"><button type="button" class="primary" id="sig-again">↻ 重新签署</button><button type="button" id="sig-save">导出 SVG</button><button type="button" id="sig-reset">重置参数</button></div>
+<div class="grid">
+<div><label>整体流畅度 <span id="sig-flowv">89%</span></label><input id="sig-flow" type="range" min="0" max="100" value="89"></div>
+<div><label>结构保留 <span id="sig-structv">24%</span></label><input id="sig-struct" type="range" min="0" max="100" value="24"></div>
+<div><label>小回环强度 <span id="sig-microv">70%</span></label><input id="sig-micro" type="range" min="0" max="100" value="70"></div>
+<div><label>曲线圆滑度 <span id="sig-smv">94%</span></label><input id="sig-sm" type="range" min="0" max="100" value="94"></div>
+<div><label>缩写程度 <span id="sig-abv">94%</span></label><input id="sig-ab" type="range" min="25" max="100" value="94"></div>
+<div><label>运动速度 <span id="sig-spv">79%</span></label><input id="sig-sp" type="range" min="0" max="100" value="79"></div>
+<div><label>尾笔规模 <span id="sig-flv">35%</span></label><input id="sig-fl" type="range" min="0" max="100" value="35"></div>
+<div><label>线宽 <span id="sig-bwv">1.15</span></label><input id="sig-bw" type="range" min="0.70" max="2.0" step="0.05" value="1.15"></div>
+<div><label>笔压微差 <span id="sig-prv">4%</span></label><input id="sig-pr" type="range" min="0" max="8" value="4"></div>
+<div><label>i / j 短划概率 <span id="sig-dashv">42%</span></label><input id="sig-dash" type="range" min="0" max="100" value="42"></div>
+</div>
+<div class="toggles"><small>可辨认回环</small><label><input id="sig-g" type="checkbox"> g · 下回环</label><label><input id="sig-d" type="checkbox"> d · 上回环</label><label><input id="sig-l" type="checkbox"> l · 上回环</label></div>
+<div class="sm">同一姓名固定主笔势；微小回环始终保留。尾迹从最后一段实际终点沿原方向连续接出，且与主体共用一条笔迹路径。</div>
+</div>
+<script>(function(){
+const root=document.getElementById('signature-lab-v05');if(!root)return;
+const $=(s)=>root.querySelector(s),val=id=>$('#'+id);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function hash(s){let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function random(seed){let t=seed>>>0;return()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296}}
+function normal(r){const a=Math.max(r(),.0000001),b=r();return clamp(Math.sqrt(-2*Math.log(a))*Math.cos(2*Math.PI*b),-2.15,2.15)}
+const CAP={
+A:[[0,5],[2,-8],[12,-29],[18,-34],[23,-26],[24,-5],[21,6],[22,-11],[30,-8]],
+B:[[1,5],[7,-28],[16,-33],[24,-26],[18,-17],[9,-15],[21,-16],[27,-8],[20,3],[7,1]],
+C:[[30,-27],[18,-33],[4,-22],[1,-6],[10,5],[27,0]],
+D:[[2,6],[8,-28],[17,-33],[29,-21],[32,-7],[23,4],[8,3]],
+E:[[26,-31],[9,-27],[4,-13],[22,-14],[4,3],[26,0]],
+F:[[2,5],[7,-28],[26,-31],[8,-16],[21,-17]],
+G:[[28,-26],[11,-33],[1,-19],[4,-3],[22,4],[29,-4],[23,-12],[19,-9]],
+H:[[2,5],[8,-30],[7,-8],[26,-18],[30,-30],[24,5]],
+I:[[9,-28],[13,-31],[10,-9],[6,4],[18,2]],
+J:[[16,-31],[28,-30],[25,-6],[13,9],[2,1]],
+K:[[3,5],[9,-30],[7,-8],[27,-27],[10,-11],[28,5]],
+L:[[8,-31],[2,6],[28,2]],
+M:[[1,5],[7,-31],[14,-7],[25,-30],[30,4]],
+N:[[2,6],[9,-31],[27,3],[31,-30]],
+O:[[23,-30],[6,-29],[1,-9],[11,6],[28,-5],[27,-25],[17,-31]],
+P:[[2,5],[9,-31],[23,-29],[29,-20],[19,-13],[8,-14]],
+Q:[[23,-30],[6,-28],[2,-9],[11,6],[29,-4],[27,-25],[17,-31],[21,-6],[34,7]],
+R:[[2,5],[9,-31],[23,-29],[28,-20],[17,-13],[8,-14],[20,-10],[27,5]],
+S:[[28,-28],[10,-31],[5,-20],[19,-10],[25,-1],[12,6],[1,-1]],
+T:[[1,-29],[29,-31],[15,-29],[10,5]],
+U:[[3,-30],[2,-8],[12,6],[27,-4],[31,-30]],
+V:[[2,-29],[10,5],[29,-31]],
+W:[[1,-29],[6,4],[16,-17],[21,4],[33,-29]],
+X:[[2,-29],[28,5],[14,-11],[29,-29],[1,5]],
+Y:[[2,-29],[13,-10],[29,-30],[13,-7],[9,7]],
+Z:[[2,-30],[29,-31],[4,5],[29,3]]
+};
+function parseSegments(input){
+ const segs=[];let seg=null;let upcoming='';
+ const flush=()=>{if(seg)segs.push(seg);seg=null};
+ for(const ch of [...input]){
+  if(/[A-Z]/.test(ch)){
+   flush();seg={cap:ch,tail:'',gap:upcoming};upcoming='';
+  }else if(/[a-z]/.test(ch)){
+   if(!seg){seg={cap:ch.toUpperCase(),tail:'',gap:upcoming};upcoming=''}else seg.tail+=ch;
+  }else {flush();upcoming=/\s/.test(ch)?'space':'punct'}
+ }
+ flush();return segs;
+}
+function interpolate(P,roundness){
+ if(P.length<2)return P;
+ let s=clamp(roundness,0,1),fair=.16*s;
+ let knots=P.map((p,i)=>{
+  if(i===0||i===P.length-1||p.keep)return {...p};
+  let a=P[i-1],b=P[i+1];
+  return{x:p.x+(a.x+b.x-2*p.x)*fair,y:p.y+(a.y+b.y-2*p.y)*fair};
+ });
+ const out=[];
+ for(let i=0;i<knots.length-1;i++){
+  const a=knots[Math.max(0,i-1)],b=knots[i],c=knots[i+1],d=knots[Math.min(knots.length-1,i+2)];
+  const n=Math.max(2,Math.ceil(Math.hypot(c.x-b.x,c.y-b.y)/.85));
+  for(let j=0;j<n;j++){
+   let t=j/n,t2=t*t,t3=t2*t;
+   const interp=(p,q,r,z)=>.5*((2*q)+(-p+r)*t+(2*p-5*q+4*r-z)*t2+(-p+3*q-3*r+z)*t3);
+   out.push({x:(b.x+(c.x-b.x)*t)*(1-s)+interp(a.x,b.x,c.x,d.x)*s,y:(b.y+(c.y-b.y)*t)*(1-s)+interp(a.y,b.y,c.y,d.y)*s});
+  }
+ }
+ out.push(knots[knots.length-1]);return out;
+}
+function outline(points,weight,seed,smooth,pct){
+ let P=interpolate(points,smooth),l=P.length,L=[],R=[],amplitude=clamp(pct/100,0,.08);
+ for(let i=0;i<l;i++){
+  let q=P[i],a=P[Math.max(0,i-1)],b=P[Math.min(l-1,i+1)];
+  let dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1;
+  let u=i/Math.max(1,l-1),mod=.68*Math.sin(5*u+seed)+.21*Math.sin(12*u+seed*.31)+.11*Math.cos(18*u+seed*.7);
+  let r=weight*.5*clamp(1+amplitude*mod,1-amplitude,1+amplitude);
+  L.push([q.x-dy/length*r,q.y+dx/length*r]);R.push([q.x+dy/length*r,q.y-dx/length*r]);
+ }
+ return 'M'+L.concat(R.reverse()).map(p=>p.map(x=>x.toFixed(2)).join(',')).join('L')+'Z';
+}
+function motif(ch,r,w,h,loopEnabled){
+ const S=(a)=>a.map(([x,y])=>({x:x*w,y:y*h}));
+ if(ch==='l')return S(loopEnabled?[[0,0],[.12,-.2],[.25,-1.65],[.47,-2.85],[.72,-3.03],[.82,-2.46],[.64,-1.46],[.44,-.25],[.68,.11],[1,0]]:[[0,0],[.24,-1.10],[.67,-2.70],[.86,-1.95],[.78,-.5],[1,0]]);
+ if(ch==='d')return S(loopEnabled?[[0,0],[.09,-.63],[.29,-.95],[.46,-.65],[.41,-.07],[.23,.06],[.18,-.33],[.46,-.87],[.70,-2.36],[.84,-3.06],[.96,-2.62],[.84,-1.42],[.79,-.08],[1,0]]:[[0,0],[.11,-.69],[.37,-.94],[.55,-.48],[.45,0],[.25,.1],[.55,-.78],[.81,-2.45],[.77,-.18],[1,0]]);
+ if(ch==='g')return S(loopEnabled?[[0,0],[.10,-.69],[.37,-.94],[.53,-.64],[.39,-.03],[.18,.06],[.13,-.42],[.56,-.92],[.78,-.95],[.74,.53],[.59,1.93],[.33,2.12],[.18,1.58],[.42,.88],[.86,.12],[1,0]]:[[0,0],[.08,-.68],[.35,-.99],[.56,-.53],[.31,.08],[.15,-.34],[.73,-.95],[.69,1.45],[.31,1.87],[.84,.23],[1,0]]);
+ if(ch==='i')return S([[0,0],[.24,-.47],[.57,-.82],[.58,-.08],[1,0]]);
+ if(ch==='j')return S([[0,0],[.22,-.45],[.58,-.82],[.60,.85],[.33,1.29],[.10,.91],[.41,.38],[1,0]]);
+ const dict={a:[[0,0],[.12,-.65],[.42,-.84],[.67,-.54],[.57,-.02],[.28,.03],[.25,-.48],[.77,-.8],[.88,-.04],[1,0]],
+ b:[[0,0],[.16,-1.65],[.44,-2.5],[.60,-1.8],[.35,-.40],[.63,-.82],[.89,-.65],[.76,.09],[1,0]],
+ c:[[0,0],[.16,-.65],[.62,-.80],[.35,-.27],[.67,0],[1,0]],
+ e:[[0,0],[.31,-.41],[.68,-.69],[.56,-.90],[.37,-.49],[.62,-.06],[1,0]],
+ f:[[0,0],[.25,-1.1],[.64,-2.34],[.73,-1.86],[.46,-.11],[1,0]],
+ h:[[0,0],[.28,-1.75],[.58,-2.34],[.48,-.47],[.76,-.73],[.91,-.55],[1,0]],
+ k:[[0,0],[.25,-1.65],[.58,-2.5],[.51,-.3],[.83,-.81],[.58,-.31],[1,0]],
+ m:[[0,0],[.14,-.7],[.39,-.54],[.48,.02],[.58,-.70],[.79,-.56],[.85,.02],[1,0]],
+ n:[[0,0],[.24,-.72],[.59,-.54],[.69,.05],[1,0]],
+ o:[[0,0],[.13,-.65],[.43,-.85],[.65,-.45],[.45,.06],[.17,-.3],[.67,-.76],[1,0]],
+ p:[[0,0],[.20,-1.25],[.43,-2.03],[.45,-.12],[.76,-.66],[.93,-.28],[1,0]],
+ q:[[0,0],[.13,-.65],[.47,-.82],[.67,-.3],[.42,.06],[.28,-.45],[.78,-.74],[.67,1.35],[1,0]],
+ r:[[0,0],[.28,-.68],[.49,-.83],[.71,-.37],[1,0]],
+ s:[[0,0],[.30,-.78],[.68,-.72],[.39,-.29],[.63,0],[1,0]],
+ t:[[0,0],[.31,-1.39],[.63,-2.02],[.50,-.16],[.74,.08],[1,0]],
+ u:[[0,0],[.18,-.65],[.27,0],[.66,-.69],[.67,.06],[1,0]],
+ v:[[0,0],[.25,.04],[.66,-.75],[.80,-.12],[1,0]],
+ w:[[0,0],[.20,.05],[.43,-.72],[.57,.03],[.82,-.75],[1,0]],
+ x:[[0,0],[.30,-.67],[.7,0],[.48,-.42],[.84,-.72],[1,0]],
+ y:[[0,0],[.20,-.72],[.53,.06],[.78,-.80],[.62,1.20],[1,0]],
+ z:[[0,0],[.57,-.74],[.24,.08],[.80,-.06],[1,0]]};
+ return S(dict[ch]||[[0,0],[.35,-.55],[.72,-.08],[1,0]]);
+}
+// V0.5: signature segments are single connected pen gestures, with preserved letter-scale loops.
+function generate(input,opt){
+ const name=(input||'Alan Wake').trim()||'Alan Wake';
+ const segments=parseSegments(name);
+ const writer=random(hash(name+'|signature-writer-v05'));
+ const take=random(hash(name+'|'+opt.seed+'|subtle-take-v05'));
+ const N=()=>normal(take);
+ const structure=clamp((opt.struct??52)/100,0,1);
+ const flow=clamp((opt.flow??72)/100,0,1);
+ const micro=clamp((opt.micro??70)/100,0,1);
+ const abbreviation=clamp(opt.ab/100,0,1);
+ const tempo=clamp(opt.sp/100,0,1);
+ const strokes=[], marks=[];
+ let x=0, baseline=0, countLoops=0, countMicro=0, terminal=null, tailJoin=null;
+ function v(a,b){return {x:a,y:b}}
+ function smoothBridge(p0,p1,run=6){
+   // Shared cubic is sampled inside the SAME pen stroke; no detached connector.
+   let rise=Math.max(2,Math.min(6,run*.45));
+   return sampleCubic(p0,v(p0.x+run*.42,p0.y+rise*.18),v(p1.x-run*.45,p1.y-rise*.32),p1,5).slice(1);
+ }
+ function sampleCubic(a,b,c,d,n){
+   let pts=[];
+   for(let i=0;i<=n;i++){
+     const t=i/n,u=1-t;
+     pts.push(v(u*u*u*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t*t*t*d.x,
+                u*u*u*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t*t*t*d.y));
+   }
+   return pts;
+ }
+ function tangent(points){
+   const b=points[points.length-1],a=points[Math.max(points.length-3,0)];
+   const dx=b.x-a.x,dy=b.y-a.y,m=Math.hypot(dx,dy)||1;
+   return v(dx/m,dy/m);
+ }
+ for(let si=0;si<segments.length;si++){
+   const seg=segments[si];
+   if(si)x+=(seg.gap==='space'?12:seg.gap==='punct'?8:4)*(0.7+structure*.3);
+   const y0=baseline*.18+N()*.28;
+   const size=si===0?1:(.80+writer()*.13);
+   const skew=.09+writer()*.09;
+   const cap=(CAP[seg.cap]||CAP.A).map(([px,py])=>v(x+(px-py*skew)*size,y0+py*size));
+   const points=cap.slice();
+   let finish=points[points.length-1],maxx=Math.max(...cap.map(p=>p.x));
+   let curx=Math.max(maxx-3,finish.x+1.2),base=y0;
+   if(seg.tail.length){
+     const entrance=v(curx,base);
+     if(Math.hypot(entrance.x-finish.x,entrance.y-finish.y)>.2)
+       points.push(...smoothBridge(finish,entrance,Math.max(3,curx-finish.x)));
+   }
+   for(let i=0;i<seg.tail.length;i++){
+     const ch=seg.tail[i];
+     const special='gdl'.includes(ch),loopActive=special&&!!opt.loops[ch];
+     // Compress horizontally rather than moving the cursor backwards. Every glyph
+     // starts at the exact endpoint of its predecessor.
+     let letterWidth=(special?(ch==='g'?14.6:13):('ij'.includes(ch)?7.2:9.6));
+     letterWidth*=1.12-.45*abbreviation;
+     letterWidth*=1-.11*tempo;
+     letterWidth*=.94+writer()*.12;
+     const height=(ch==='g'?9.1:9.0)*(.92+writer()*.16);
+     if(loopActive){letterWidth*=1.12;countLoops++}
+     const raw=motif(ch,writer,letterWidth,height,loopActive);
+     // Non-specified letters become shorter gesture fragments at lower retention.
+     // Recognizable micro-loops are protected. They are not tied to g/d/l toggles.
+     const protectedMicro='aeomnsur'.includes(ch);
+     const retain=special?1:protectedMicro?(.78+.22*structure)*(1-.14*flow):(.35+.65*structure)*(1-.54*flow);
+     const pts=raw.map((q,k)=>{
+       const t=k/Math.max(1,raw.length-1);
+       const quickY=-height*(.23+ .14*Math.sin(Math.PI*t*1.8));
+       let y=q.y*retain+quickY*(1-retain)*Math.sin(Math.PI*t);
+       let xp=q.x;
+       // Lower displacement across faster signatures, preserving small curls.
+       y*=1-(1-structure)*.10;
+       return v(curx+xp,base+y);
+     });
+     // Start is the end of the previous motif; do not add another M / gap.
+     pts[0]=points[points.length-1];
+     // Natural micro loops: preserve authored turns in a/o/e/... and make a few
+     // additional shallow curls. Micro geometry stays even with tall loops off.
+     if(protectedMicro && i>0 && i<seg.tail.length-1 && writer()<(.11+.21*micro)){
+       const k=Math.max(1,Math.min(pts.length-2,Math.round(pts.length*.4)));
+       const A=pts[k],B=pts[k+1];
+       const cx=(A.x+B.x)*.5,cy=(A.y+B.y)*.5;
+       const r=1.05+micro*1.3;
+       // A single small closed curl replacing a local segment, with a matched
+       // entry/exit. Existing a/o/g/d letter loops remain intact.
+       const curl=[v(cx-r*.32,cy-r*.78),v(cx-r*.74,cy-r*.28),
+                   v(cx-r*.13,cy+r*.40),v(cx+r*.48,cy-r*.48)];
+       pts.splice(k+1,0,...curl);countMicro++;
+     }
+     points.push(...pts.slice(1));
+     // Mark positions use real letter coordinates; drawn as a separate pen lift.
+     if(ch==='i'||ch==='j'){
+       const mx=curx+letterWidth*.58+N()*.55,my=base-15.4+N()*.7;
+       const asDash=take()<opt.dash/100;
+       if(asDash){const len=2.3+take()*1.7,angle=-.48+N()*.12;
+         marks.push({type:'dash',x:mx,y:my,dx:len*Math.cos(angle),dy:len*Math.sin(angle)});
+       }else marks.push({type:'dot',x:mx,y:my,r:.86+take()*.16});
+     }
+     curx+=letterWidth; // no overlap/backtracking jumps
+     base=base*(.78+.16*flow)+y0*(.22-.16*flow)+N()*.10*(1-flow);
+     // Connect baseline to current glyph endpoint by minimal drift rather than
+     // snapping, maintaining one smooth curve across letter boundaries.
+     const last=points[points.length-1];
+     if(Math.abs(last.y-base)>1.2){
+        points.push(v(last.x+.32,last.y*.55+base*.45));
+     }
+   }
+   strokes.push({type:'stroke',tag:'segment',points,seed:writer()*8});
+   x=points[points.length-1].x+2.3;
+   baseline=points[points.length-1].y;
+ }
+ // Writer-specific low-frequency trajectory distortion. No per-point jitter.
+ for(const stroke of strokes){
+   const k0=N(),k1=N(),k2=N(),k3=N();
+   const amp=(1-flow)*.36+.14;
+   let distance=0;
+   let prev=stroke.points[0];
+   stroke.points=stroke.points.map((p,i)=>{
+     if(i)distance+=Math.hypot(p.x-prev.x,p.y-prev.y);
+     prev=p;
+     const edge=(i===0||i===stroke.points.length-1)?0:.75;
+     const xShift=edge*amp*(k0*Math.sin(distance/24+.4)+.26*k2*Math.sin(distance/11));
+     const yShift=edge*amp*(k1*Math.sin(distance/26+.2)+.22*k3*Math.sin(distance/13));
+     return v(p.x+xShift,p.y+yShift);
+   });
+ }
+ // Terminal flourish: SAME polygon / SAME stroke, starting at the actual final
+ // endpoint, with its cubic start tangent copied from the final body segment.
+ if(strokes.length){
+   const s=strokes[strokes.length-1],body=s.points,join=body[body.length-1];
+   terminal=v(join.x,join.y);
+   if(opt.fl>1){
+     const T=tangent(body),strength=clamp(opt.fl/100,0,1),length=15+strength*71;
+     // Hand leaves last lower-case stroke, continues along its existing direction,
+     // then gradually sweeps right. No detached path or forced baseline reset.
+     const bend=7+strength*13;
+     const p1=v(join.x+T.x*bend,join.y+T.y*bend);
+     const yLift=(5+strength*3)*(-.38+.18*N());
+     const p2=v(join.x+length*.55,join.y+yLift+1.6);
+     const end=v(join.x+length,join.y+yLift-3.2-strength*1.8);
+     const samples=sampleCubic(join,p1,p2,end,Math.max(16,Math.round(length/2)));
+     tailJoin=v(samples[0].x,samples[0].y); // exact equality by construction
+     s.points.push(...samples.slice(1));
+   }
+ }
+ return {strokes:strokes.concat(marks),segments:segments.length,loops:countLoops,micro:countMicro,marks:marks.length,terminal,tailJoin};
+}
+
+function render(name,opt){
+ const data=generate(name,opt),strokes=data.strokes,all=[];
+ for(const st of strokes){if(st.type==='stroke')all.push(...st.points);else all.push({x:st.x,y:st.y})}
+ if(!all.length)all.push({x:0,y:0},{x:100,y:-20});
+ let minX=Math.min(...all.map(p=>p.x))-3,maxX=Math.max(...all.map(p=>p.x))+3;
+ let minY=Math.min(...all.map(p=>p.y))-3,maxY=Math.max(...all.map(p=>p.y))+3;
+ const factor=Math.min(1.92,790/(maxX-minX),137/(maxY-minY));
+ let ox=39-minX*factor,oy=112-(minY+maxY)*factor*.5;
+ let paths=strokes.map(st=>{
+  if(st.type==='dot')return '<circle cx="'+st.x.toFixed(3)+'" cy="'+st.y.toFixed(3)+'" r="'+st.r.toFixed(3)+'" fill="#242220"/>';
+  if(st.type==='dash')return '<path d="M'+st.x.toFixed(3)+' '+st.y.toFixed(3)+' l'+st.dx.toFixed(3)+' '+st.dy.toFixed(3)+'" fill="none" stroke="#242220" stroke-width="'+opt.bw+'" stroke-linecap="round"/>';
+  return '<path d="'+outline(st.points,opt.bw,st.seed,opt.sm/100,opt.pr)+'" fill="#242220"/>';
+ }).join('');
+ return{svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" role="img" aria-label="签名字迹"><rect width="880" height="220" fill="white"/><g transform="translate('+ox.toFixed(3)+' '+oy.toFixed(3)+') scale('+factor.toFixed(4)+')">'+paths+'</g></svg>',...data};
+}
+let seed=0,activeName='Alan Wake',lastSVG='';
+function getOptions(){return {flow:+val('sig-flow').value,struct:+val('sig-struct').value,micro:+val('sig-micro').value,ab:+val('sig-ab').value,sp:+val('sig-sp').value,fl:+val('sig-fl').value,sm:+val('sig-sm').value,bw:+val('sig-bw').value,pr:+val('sig-pr').value,dash:+val('sig-dash').value,loops:{g:val('sig-g').checked,d:val('sig-d').checked,l:val('sig-l').checked},seed}}
+function update(){
+ const o=getOptions(),name=val('sig-name').value;
+ const out=render(name,o),view=$('#sig-view');
+ view.innerHTML=out.svg;lastSVG=out.svg;
+ $('#sig-metrics').textContent=out.segments+' 段起笔 · '+out.loops+' 个大回环 · '+out.marks+' 个点划';
+ $('#sig-seed').textContent='S'+String(seed).padStart(3,'0');
+ for(const [key,suffix] of [['flow','%'],['struct','%'],['micro','%'],['ab','%'],['sp','%'],['fl','%'],['sm','%'],['dash','%'],['pr','%']])$('#sig-'+key+'v').textContent=o[key]+suffix;
+ $('#sig-bwv').textContent=o.bw.toFixed(2);
+ $('#sig-nameprint').textContent=name||'Alan Wake';
+}
+root.querySelectorAll('input').forEach(input=>input.addEventListener('input',update));
+$('#sig-again').addEventListener('click',()=>{seed++;update()});
+$('#sig-reset').addEventListener('click',()=>{seed=0;for(const [id,value] of Object.entries({'sig-flow':'89','sig-struct':'24','sig-micro':'70','sig-ab':'94','sig-sp':'79','sig-fl':'35','sig-sm':'94','sig-bw':'1.15','sig-pr':'4','sig-dash':'42','sig-name':'Margie Golding'}))val(id).value=value;for(const x of ['g','d','l'])val('sig-'+x).checked=false;update()});
+root.querySelectorAll('[data-example]').forEach(btn=>btn.addEventListener('click',()=>{val('sig-name').value=btn.dataset.example;seed=0;update()}));
+$('#sig-save').addEventListener('click',()=>{let blob=new Blob([lastSVG],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='signature-'+(val('sig-name').value.trim().replace(/[^a-zA-Z0-9_-]+/g,'-')||'preview')+'.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)});
+update();
+window.SignatureMotionLabV5={render,generate,getOptions,update};
+})();
+</script></body></html>
