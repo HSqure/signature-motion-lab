@@ -1,6 +1,6 @@
 # Signature Motion Lab
 
-**离线运行的程序化草签生成实验台** · Offline procedural signature rendering experiment
+**离线运行的程序化草签生成测试项目** · Offline procedural signature rendering experiment
 
 ![Signature Motion Lab preview](assets/preview.png)
 
