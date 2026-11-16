@@ -1,0 +1,136 @@
+{
+  "tests": [
+    {
+      "name": "Alan Wake",
+      "segments": 2,
+      "loopCount": 0,
+      "microCount": 0,
+      "marks": 0,
+      "strokes": 2,
+      "points": 83,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 157.98742453621838,
+        "y": -6.1444889028598
+      }
+    },
+    {
+      "name": "Margie Golding",
+      "segments": 2,
+      "loopCount": 0,
+      "microCount": 1,
+      "marks": 2,
+      "strokes": 2,
+      "points": 119,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 180.74567475367843,
+        "y": -4.068446380621653
+      }
+    },
+    {
+      "name": "McDonald",
+      "segments": 2,
+      "loopCount": 0,
+      "microCount": 0,
+      "marks": 0,
+      "strokes": 2,
+      "points": 81,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 140.59378062350157,
+        "y": -5.749536341015219
+      }
+    },
+    {
+      "name": "Jodie d'Angelo",
+      "segments": 3,
+      "loopCount": 0,
+      "microCount": 0,
+      "marks": 1,
+      "strokes": 3,
+      "points": 109,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 180.42737218428815,
+        "y": -6.748770119981361
+      }
+    },
+    {
+      "name": "Miguel Iga",
+      "segments": 2,
+      "loopCount": 0,
+      "microCount": 2,
+      "marks": 1,
+      "strokes": 2,
+      "points": 97,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 147.19825040076353,
+        "y": -6.396302730076559
+      }
+    },
+    {
+      "name": "A",
+      "segments": 1,
+      "loopCount": 0,
+      "microCount": 0,
+      "marks": 0,
+      "strokes": 1,
+      "points": 29,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 71.27463529372588,
+        "y": -12.883597887499922
+      }
+    },
+    {
+      "name": "gdl",
+      "segments": 1,
+      "loopCount": 0,
+      "microCount": 0,
+      "marks": 0,
+      "strokes": 1,
+      "points": 47,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 86.40211854904861,
+        "y": -6.456273285764526
+      }
+    },
+    {
+      "name": "iJ",
+      "segments": 2,
+      "loopCount": 0,
+      "microCount": 0,
+      "marks": 0,
+      "strokes": 2,
+      "points": 30,
+      "endGap": 0,
+      "stable": true,
+      "isFinite": true,
+      "finalBodyLast": {
+        "x": 64.57533783817966,
+        "y": -4.678388278743587
+      }
+    }
+  ],
+  "loops_off": 0,
+  "loops_on": 4,
+  "seedDiff": true,
+  "errors": []
+}
