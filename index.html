@@ -1,25 +1,29 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Signature Motion Lab v0.5</title><style>body{margin:0;background:#f0f0f0;padding:24px 14px;font:13px system-ui,sans-serif}#signature-lab-v05{background:#fafafa;border:1px solid #dedede;border-radius:6px;padding:24px;box-shadow:0 9px 40px #00000008}</style></head><body><div id="signature-lab-v05">
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Signature Motion Lab v0.8.0</title><style>body{margin:0;background:#f0f0f0;padding:24px 14px;font:13px system-ui,sans-serif}#signature-lab-v05{background:#fafafa;border:1px solid #dedede;border-radius:6px;padding:24px;box-shadow:0 9px 40px #00000008}</style></head><body><div id="signature-lab-v05">
 <style>
 #signature-lab-v05{font:13px/1.4 system-ui,"Microsoft Yahei",Arial,sans-serif;color:#262626;max-width:1100px;margin:auto}#signature-lab-v05 *{box-sizing:border-box}#signature-lab-v05 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}#signature-lab-v05 h2{font-size:18px;line-height:1.25;margin:0}#signature-lab-v05 small{color:#808080;font-size:11px}#signature-lab-v05 .panel{background:#fff;border:1px solid #d8d8d8;border-radius:4px;overflow:hidden}#signature-lab-v05 #sig-view svg{display:block;width:100%;height:auto}#signature-lab-v05 .paper-top{display:flex;justify-content:space-between;letter-spacing:1px;font-size:10px;color:#aaa;padding:13px 17px 0}#signature-lab-v05 .paper-bot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #e5e5e5;margin:0 15px;padding:10px 0;color:#999;font-size:11px}#signature-lab-v05 .actions{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}#signature-lab-v05 button{background:#fff;color:#262626;border:1px solid #c8c8c8;border-radius:4px;padding:8px 11px;font:inherit;cursor:pointer}#signature-lab-v05 button:hover{background:#ececec}#signature-lab-v05 button.primary{background:#262626;color:#fff;border-color:#262626}#signature-lab-v05 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 20px;margin-top:14px}#signature-lab-v05 label{display:block;font-size:12px;color:#696969;margin-bottom:7px}#signature-lab-v05 input[type=text]{background:#fff;color:#222;border:1px solid #aaa;border-radius:3px;padding:9px 10px;font:inherit;width:100%;min-width:0}#signature-lab-v05 input[type=range]{width:100%;accent-color:#555}#signature-lab-v05 label span{float:right;color:#333;font-variant-numeric:tabular-nums}#signature-lab-v05 .toggles{display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #ddd;padding:15px 0 0;margin:16px 0 0}#signature-lab-v05 .toggles label{display:flex;align-items:center;gap:6px;margin:0;font-weight:500;color:#333}#signature-lab-v05 .examples{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:9px}#signature-lab-v05 .examples button{font-size:11px;padding:5px 8px;background:#f6f6f6}#signature-lab-v05 .sm{font-size:11px;color:#8a8a8a;margin-top:10px}#signature-lab-v05 .colorless{background:transparent}#signature-lab-v05 .namebox{margin:0 0 8px}#signature-lab-v05 .detail{padding-top:8px}@media(max-width:560px){#signature-lab-v05 .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px}#signature-lab-v05 .paper-bot{font-size:10px}}
 </style>
-<div class="top"><div><h2>Signature Motion Lab / v0.5</h2><small>连续流线 · 小回环保留 · 尾笔无缝接出</small></div><small id="sig-seed">S000</small></div>
-<div class="namebox"><label for="sig-name">签署人姓名 / SIGNATORY</label><input id="sig-name" type="text" value="Margie Golding" maxlength="60" spellcheck="false"><div class="examples"><small>测试姓名</small><button data-example="Alan Wake">Alan Wake</button><button data-example="Margie Golding">Margie Golding</button><button data-example="Jodie d'Angelo">Jodie d'Angelo</button><button data-example="McDonald">McDonald</button></div></div>
-<div class="panel"><div class="paper-top"><span>AUTHORIZED SIGNATURE / INK STUDY</span><span>V05</span></div><div id="sig-view" aria-live="polite"></div><div class="paper-bot"><span id="sig-nameprint">Alan Wake</span><span id="sig-metrics">—</span></div></div>
+<div class="top"><div><h2>Signature Motion Lab / v0.8.0</h2><small>非周期尾笔 · 受控盘绕 · F 间距修复</small></div><small id="sig-seed">S000</small></div>
+<div class="namebox"><label for="sig-name">签署人姓名 / SIGNATORY</label><input id="sig-name" type="text" value="Hayley Joy" maxlength="60" spellcheck="false"><div class="examples"><small>测试姓名</small><button data-example="Alan Wake">Alan Wake</button><button data-example="Hayley Joy">Hayley Joy</button><button data-example="Jodie d'Angelo">Jodie d'Angelo</button><button data-example="McDonald">McDonald</button></div></div>
+<div class="panel"><div class="paper-top"><span>AUTHORIZED SIGNATURE / INK STUDY</span><span>V080</span></div><div id="sig-view" aria-live="polite"></div><div class="paper-bot"><span id="sig-nameprint">Alan Wake</span><span id="sig-metrics">—</span></div></div>
 <div class="actions"><button type="button" class="primary" id="sig-again">↻ 重新签署</button><button type="button" id="sig-save">导出 SVG</button><button type="button" id="sig-reset">重置参数</button></div>
 <div class="grid">
-<div><label>整体流畅度 <span id="sig-flowv">89%</span></label><input id="sig-flow" type="range" min="0" max="100" value="89"></div>
-<div><label>结构保留 <span id="sig-structv">24%</span></label><input id="sig-struct" type="range" min="0" max="100" value="24"></div>
-<div><label>小回环强度 <span id="sig-microv">70%</span></label><input id="sig-micro" type="range" min="0" max="100" value="70"></div>
-<div><label>曲线圆滑度 <span id="sig-smv">94%</span></label><input id="sig-sm" type="range" min="0" max="100" value="94"></div>
-<div><label>缩写程度 <span id="sig-abv">94%</span></label><input id="sig-ab" type="range" min="25" max="100" value="94"></div>
-<div><label>运动速度 <span id="sig-spv">79%</span></label><input id="sig-sp" type="range" min="0" max="100" value="79"></div>
+<div><label>结构保留 <span id="sig-structv">22%</span></label><input id="sig-struct" type="range" min="0" max="100" value="22"></div>
+<div><label>快写程度 <span id="sig-drivev">50%</span></label><input id="sig-drive" type="range" min="0" max="100" value="50"></div>
 <div><label>尾笔规模 <span id="sig-flv">35%</span></label><input id="sig-fl" type="range" min="0" max="100" value="35"></div>
 <div><label>线宽 <span id="sig-bwv">1.15</span></label><input id="sig-bw" type="range" min="0.70" max="2.0" step="0.05" value="1.15"></div>
 <div><label>笔压微差 <span id="sig-prv">4%</span></label><input id="sig-pr" type="range" min="0" max="8" value="4"></div>
 <div><label>i / j 短划概率 <span id="sig-dashv">42%</span></label><input id="sig-dash" type="range" min="0" max="100" value="42"></div>
 </div>
-<div class="toggles"><small>可辨认回环</small><label><input id="sig-g" type="checkbox"> g · 下回环</label><label><input id="sig-d" type="checkbox"> d · 上回环</label><label><input id="sig-l" type="checkbox"> l · 上回环</label></div>
-<div class="sm">同一姓名固定主笔势；微小回环始终保留。尾迹从最后一段实际终点沿原方向连续接出，且与主体共用一条笔迹路径。</div>
+<div style="border-top:1px solid #ddd;margin-top:17px;padding-top:14px"><small style="font-weight:600;color:#555">小写字母形态 / LOWERCASE GEOMETRY</small><div class="grid" style="margin-top:10px">
+<div><label for="sig-bowl">圈体大小 <span id="sig-bowlv">72%</span></label><input id="sig-bowl" type="range" min="45" max="140" value="72"></div>
+<div><label for="sig-ystretch">纵向拉伸 <span id="sig-ystretchv">100%</span></label><input id="sig-ystretch" type="range" min="55" max="160" value="100"></div>
+</div><div class="sm">圈体大小调整局部回环及主体圈；纵向拉伸影响全部小写字母及连笔。横向拉伸已并入“快写程度”，与运动速度、缩写程度一起统一控制。大写原语、尾迹长度和基准线宽不参与缩放。</div></div>
+<div class="toggles"><small>可辨认回环</small><label><input id="sig-g" type="checkbox"> g · 下回环</label><label><input id="sig-d" type="checkbox"> d · 上回环</label><label><input id="sig-l" type="checkbox"> l · 上回环</label><label><input id="sig-y" type="checkbox"> y · 下回环</label><label><input id="sig-j" type="checkbox"> j · 下回环</label><label><input id="sig-h" type="checkbox" checked> h · 逆时针上回环</label><label><input id="sig-tailorbit" type="checkbox"> 尾笔乱绕</label></div>
+<div class="grid" id="sig-orbit-controls" style="margin-top:12px">
+<div><label for="sig-orbitcount">盘绕长度倍率 <span id="sig-orbitcountv">18.0×</span></label><input id="sig-orbitcount" type="range" min="1" max="60" step="0.1" value="18"></div>
+<div><label for="sig-orbitnoise">盘绕噪声 <span id="sig-orbitnoisev">85%</span></label><input id="sig-orbitnoise" type="range" min="0" max="100" value="85"></div>
+</div><div class="sm">盘绕以非周期横八走势交替折返，按普通尾笔长度 × 倍率 × 随机系数截断；允许停在任意相位。噪声改变交叉点、叶瓣高低、倾角和实际长度。</div>
+<div class="sm">大写笔顺与小写衔接独立。N/O/U/V/W/F 允许短抬笔后就近进入小写；P 一笔完成，X 两笔交叉。p/q 使用独立原语。回环统计按笔势事件计数，开放主体不计作闭合圈。</div>
 </div>
 <script>(function(){
 const root=document.getElementById('signature-lab-v05');if(!root)return;
@@ -37,7 +41,7 @@ D:[[2,6],[8,-28],[17,-33],[29,-21],[32,-7],[23,4],[8,3]],
 E:[[26,-31],[9,-27],[4,-13],[22,-14],[4,3],[26,0]],
 F:[[2,5],[7,-28],[26,-31],[8,-16],[21,-17]],
 G:[[28,-26],[11,-33],[1,-19],[4,-3],[22,4],[29,-4],[23,-12],[19,-9]],
-H:[[2,5],[8,-30],[7,-8],[26,-18],[30,-30],[24,5]],
+H:[[30,-32],[28,-25],[24.8,-16],[21.7,-7],[20.5,-1],[21.8,2.1],[25.5,2.3],[29.8,1.2],[34,0]],
 I:[[9,-28],[13,-31],[10,-9],[6,4],[18,2]],
 J:[[16,-31],[28,-30],[25,-6],[13,9],[2,1]],
 K:[[3,5],[9,-30],[7,-8],[27,-27],[10,-11],[28,5]],
@@ -69,25 +73,64 @@ function parseSegments(input){
  }
  flush();return segs;
 }
+function turning(points,i){
+ const a=points[Math.max(0,i-1)],b=points[i],c=points[Math.min(points.length-1,i+1)];
+ const u={x:b.x-a.x,y:b.y-a.y},v={x:c.x-b.x,y:c.y-b.y};
+ const mu=Math.hypot(u.x,u.y)||1,mv=Math.hypot(v.x,v.y)||1;
+ const dot=clamp((u.x*v.x+u.y*v.y)/(mu*mv),-1,1);
+ return Math.acos(dot)/Math.PI; // 0..1
+}
+function resample(points,step=.9){
+ if(points.length<2)return points.slice();
+ const d=[0];
+ for(let i=1;i<points.length;i++)d.push(d[i-1]+Math.hypot(points[i].x-points[i-1].x,points[i].y-points[i-1].y));
+ const total=d[d.length-1];
+ if(total<=step)return points.slice();
+ let out=[{...points[0]}],target=step,seg=1;
+ while(target<total){
+   while(seg<d.length-1 && d[seg]<target)seg++;
+   const a=points[seg-1],b=points[seg],span=(d[seg]-d[seg-1])||1,t=(target-d[seg-1])/span;
+   out.push({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t});
+   target+=step;
+ }
+ out.push({...points[points.length-1]});
+ return out;
+}
+// v0.6.2 visual regression fix: smooth the original *sparse motion knots* first.
+// Resampling a polyline before fitting a spline turns its corners into long sharp
+// edges; the new dense samples have collinear neighbors and the spline cannot
+// reconstruct the missing corner radius. Original knot topology is essential.
 function interpolate(P,roundness){
- if(P.length<2)return P;
- let s=clamp(roundness,0,1),fair=.16*s;
- let knots=P.map((p,i)=>{
+ if(P.length<2)return P.slice();
+ const s=clamp(roundness,0,1);
+ // v0.5 baseline: fair sparse knots enough to remove sharp apexes, keeping
+ // endpoints and small reversal loops anchored.
+ const fair=.16*s;
+ const knots=P.map((p,i)=>{
   if(i===0||i===P.length-1||p.keep)return {...p};
-  let a=P[i-1],b=P[i+1];
-  return{x:p.x+(a.x+b.x-2*p.x)*fair,y:p.y+(a.y+b.y-2*p.y)*fair};
+  const a=P[i-1],b=P[i+1];
+  // Only a light reduction for genuinely tight reversals; never suppress
+  // the spline itself or every capital will become a polygon again.
+  const preserve=1-.12*clamp(turning(P,i),0,1);
+  const f=fair*preserve;
+  return {x:p.x+(a.x+b.x-2*p.x)*f,y:p.y+(a.y+b.y-2*p.y)*f};
  });
  const out=[];
  for(let i=0;i<knots.length-1;i++){
   const a=knots[Math.max(0,i-1)],b=knots[i],c=knots[i+1],d=knots[Math.min(knots.length-1,i+2)];
-  const n=Math.max(2,Math.ceil(Math.hypot(c.x-b.x,c.y-b.y)/.85));
+  const n=Math.max(3,Math.ceil(Math.hypot(c.x-b.x,c.y-b.y)/.50));
   for(let j=0;j<n;j++){
-   let t=j/n,t2=t*t,t3=t2*t;
+   const t=j/n,t2=t*t,t3=t2*t;
    const interp=(p,q,r,z)=>.5*((2*q)+(-p+r)*t+(2*p-5*q+4*r-z)*t2+(-p+3*q-3*r+z)*t3);
-   out.push({x:(b.x+(c.x-b.x)*t)*(1-s)+interp(a.x,b.x,c.x,d.x)*s,y:(b.y+(c.y-b.y)*t)*(1-s)+interp(a.y,b.y,c.y,d.y)*s});
+   const lin={x:b.x+(c.x-b.x)*t,y:b.y+(c.y-b.y)*t};
+   const cat={x:interp(a.x,b.x,c.x,d.x),y:interp(a.y,b.y,c.y,d.y)};
+   out.push({x:lin.x*(1-s)+cat.x*s,y:lin.y*(1-s)+cat.y*s});
   }
  }
- out.push(knots[knots.length-1]);return out;
+ out.push({...knots[knots.length-1]});
+ // Uniformization happens *after* the smooth curve exists, for stable ink
+ // polygon thickness without rebuilding hard vertices.
+ return resample(out,.43);
 }
 function outline(points,weight,seed,smooth,pct){
  let P=interpolate(points,smooth),l=P.length,L=[],R=[],amplitude=clamp(pct/100,0,.08);
@@ -100,27 +143,118 @@ function outline(points,weight,seed,smooth,pct){
  }
  return 'M'+L.concat(R.reverse()).map(p=>p.map(x=>x.toFixed(2)).join(',')).join('L')+'Z';
 }
-function motif(ch,r,w,h,loopEnabled){
+// A neck-first bowl starts with the incoming rising stroke, reaches the
+// upper-right neck, and then turns counterclockwise around the body.
+// Keep the neck visit and the return distinct, so they survive spline fairing.
+const BODY_BOWL=[[0,0],[.20,-.15],[.47,-.60],[.72,-.91],
+ [.49,-1.01],[.25,-.91],[.13,-.66],[.13,-.29],[.30,-.02],
+ [.54,-.01],[.73,-.28],[.77,-.63],[.69,-.91]];
+const BODY_LOOP_LETTERS='aegdopqb';
+const OPEN_BODY_LETTERS='uvw';
+// Scale local geometry, not glyph advance. The first/last points retain
+// their entry/exit role; blend the approach and departure to the new loop.
+function scaleCircle(points,first,last,cx,cy,size,blend=2){
+ const out=points.map(p=>p.slice());
+ for(let i=0;i<out.length;i++){
+   const gain=i<first?Math.max(0,1-(first-i)/(blend+1)):i>last?Math.max(0,1-(i-last)/(blend+1)):1;
+   if(i===0||i===out.length-1||!gain)continue;
+   const k=1+(size-1)*gain;
+   out[i]=[cx+(out[i][0]-cx)*k,cy+(out[i][1]-cy)*k];
+ }
+ return out;
+}
+function motif(ch,r,w,h,loopEnabled,circleSize=1){
  const S=(a)=>a.map(([x,y])=>({x:x*w,y:y*h}));
- if(ch==='l')return S(loopEnabled?[[0,0],[.12,-.2],[.25,-1.65],[.47,-2.85],[.72,-3.03],[.82,-2.46],[.64,-1.46],[.44,-.25],[.68,.11],[1,0]]:[[0,0],[.24,-1.10],[.67,-2.70],[.86,-1.95],[.78,-.5],[1,0]]);
- if(ch==='d')return S(loopEnabled?[[0,0],[.09,-.63],[.29,-.95],[.46,-.65],[.41,-.07],[.23,.06],[.18,-.33],[.46,-.87],[.70,-2.36],[.84,-3.06],[.96,-2.62],[.84,-1.42],[.79,-.08],[1,0]]:[[0,0],[.11,-.69],[.37,-.94],[.55,-.48],[.45,0],[.25,.1],[.55,-.78],[.81,-2.45],[.77,-.18],[1,0]]);
- if(ch==='g')return S(loopEnabled?[[0,0],[.10,-.69],[.37,-.94],[.53,-.64],[.39,-.03],[.18,.06],[.13,-.42],[.56,-.92],[.78,-.95],[.74,.53],[.59,1.93],[.33,2.12],[.18,1.58],[.42,.88],[.86,.12],[1,0]]:[[0,0],[.08,-.68],[.35,-.99],[.56,-.53],[.31,.08],[.15,-.34],[.73,-.95],[.69,1.45],[.31,1.87],[.84,.23],[1,0]]);
+ const bowlJitter=.94+r()*.12;
+ const local=(a,first,last,cx,cy,blend=2,sizeMul=1)=>scaleCircle(a,first,last,cx,cy,circleSize*bowlJitter*sizeMul,blend);
+ const body=(tail,bodyMul=1,tailMul=1)=>{
+   let a=BODY_BOWL.concat(tail);
+   a=local(a,3,12,.46,0,3,bodyMul);
+   if(ch==='d'||ch==='g')a=local(a,14,a.length-3,.73,ch==='d'?-1.00:.30,1,tailMul);
+   return S(a);
+ };
+ if(ch==='a')return body([[.83,-.67],[.80,-.16],[.86,.01],[1,0]]);
+ if(ch==='o')return body([[.82,-.83],[.93,-.62],[1,-.52]]);
+ if(ch==='e')return S(local([[0,0],[.22,-.16],[.48,-.39],[.72,-.56],
+  [.80,-.79],[.65,-.96],[.37,-.94],[.19,-.72],[.18,-.43],
+  [.34,-.15],[.58,-.03],[.85,-.10],[1,-.08]],3,10,.48,0,2));
+ // q: neck-first bowl on LEFT of a right-side descending stem.
+ // Its final hook opens to the right, unlike the left stem of p.
+ if(ch==='q'){
+   let a=BODY_BOWL.concat([[.82,-.70],[.85,-.18],[.82,.34],[.77,.92],[.72,1.26],[.76,1.38],[.86,1.14],[.95,.64],[.98,.22],[1,.03]]);
+   a=local(a,3,12,.46,0,3,1.02);
+   a=local(a,13,a.length-2,.80,.86,2,.98);
+   return S(a);
+ }
+ // p: keep the descender compact and tucked under the bowl, closer to y/j scale.
+ if(ch==='p'){
+   let a=[[0,0],[.10,-.16],[.22,-.56],[.31,-.80],[.33,-.42],[.29,.14],[.24,.66],[.21,1.02],[.24,1.12],[.31,.98],[.37,.64],[.39,.20],[.41,-.24],[.50,-.62],[.66,-.80],[.82,-.78],[.91,-.58],[.88,-.28],[.73,-.08],[.52,-.04],[.40,-.16],[.56,-.02],[.82,.03],[1,0]];
+   a=local(a,7,10,.26,.88,2,.94);
+   a=local(a,13,20,.69,-.42,2,.98);
+   return S(a);
+ }
+ // b: one compact ascending gesture, narrow retrace to the baseline,
+ // then an inclined right-hand bowl and a low outgoing stroke.
+ // No tall-loop alternate: the ascender stays narrow at every setting.
+ if(ch==='b'){
+   const a=[[0,0],[.13,-.18],[.29,-.51],[.46,-.94],
+    [.62,-1.45],[.77,-2.00],[.81,-2.22],[.77,-2.24],
+    [.68,-1.98],[.54,-1.42],[.40,-.86],[.27,-.33],[.21,.025],
+    [.34,-.35],[.50,-.65],[.67,-.74],[.79,-.67],[.81,-.47],
+    [.70,-.27],[.50,-.10],[.26,.035],[.49,-.075],[.73,-.16],[1,-.10]];
+   return S(local(a,13,20,.52,-.34,1));
+ }
+ // s: ascending diagonal to a small top hook, a bowed downstroke, then
+ // a lower leftward sweep crossing the entry before the rightward exit.
+ // Do not add a closed e-like eye or a random curl.
+ if(ch==='s')return S(local([[0,0],[.15,-.16],[.32,-.49],[.49,-.87],[.53,-1.02],
+   [.44,-1.04],[.36,-.92],[.42,-.80],[.66,-.61],[.77,-.42],[.71,-.21],
+   [.55,-.06],[.35,.06],[.23,.07],[.42,.035],[.70,.02],[1,-.02]],4,12,.52,-.40,2));
+ if(ch==='u')return S(local([[0,0],[.10,-.34],[.18,-.64],[.26,-.72],[.35,-.58],[.43,-.10],[.47,.03],[.55,-.34],[.67,-.70],[.80,-.62],[.90,-.14],[1,.04]],2,10,.53,0,2));
+ if(ch==='v')return S(local([[0,0],[.12,-.18],[.28,.02],[.46,-.40],[.66,-.76],[.84,-.38],[1,-.08]],1,5,.56,-.14,2));
+ if(ch==='w')return S(local([[0,0],[.10,-.12],[.24,.02],[.41,-.42],[.55,.00],[.74,-.44],[.92,-.12],[1,-.02]],1,6,.56,-.12,2));
+
+ // l: narrow canted ascender, return to the baseline BEFORE leaving right.
+ // The compact state has a tiny tip loop, not a right-side R-shaped bowl.
+ if(ch==='l'){
+   const a=loopEnabled?[[0,0],[.15,-.30],[.34,-1.35],[.56,-2.45],[.69,-2.98],[.75,-2.91],[.73,-2.51],[.59,-1.80],[.46,-1.02],[.38,-.24],[.40,.02],[.59,.04],[.82,-.12],[1,0]]:
+   [[0,0],[.16,-.23],[.32,-.91],[.51,-1.82],[.62,-2.18],[.65,-2.10],[.60,-1.85],[.49,-1.43],[.39,-.95],[.35,-.44],[.36,.02],[.55,.02],[.80,-.12],[1,0]];
+   return S(local(a,3,7,.52,-1.30,2));
+ }
+ // d: same bowl, then a counterclockwise ascender. The return reaches
+ // the baseline before the exit, in both large and compact modes.
+ if(ch==='d')return body(loopEnabled?
+  [[.84,-1.45],[.97,-2.23],[.92,-2.86],[.74,-3.02],[.55,-2.90],
+   [.45,-2.48],[.47,-1.86],[.58,-1.14],[.67,-.44],[.74,-.05],[.80,.04],[1,0]]:
+  [[.84,-1.34],[.92,-1.86],[.93,-2.12],[.85,-2.10],[.74,-1.86],
+   [.66,-1.44],[.63,-.90],[.66,-.34],[.75,.02],[.86,.04],[1,0]]);
+ if(ch==='g')return body(loopEnabled?
+  [[.83,-.68],[.79,.39],[.66,1.38],[.42,1.91],[.21,1.78],
+   [.23,1.16],[.43,.62],[.73,.16],[1,.06]]:
+  [[.83,-.68],[.78,.38],[.62,1.60],[.35,1.72],
+   [.42,1.24],[.71,.34],[1,.10]]);
+ // h: rise along the right side of the ascender, turn LEFT across its top,
+ // descend on its left side, cross the incoming rise, then write the h shoulder.
+ // Screen coordinates (y down): the enclosed loop has negative signed area.
+ if(ch==='h'){
+   const a=loopEnabled?
+    [[0,0],[.23,-.27],[.47,-.86],[.77,-1.72],[.86,-2.48],[.68,-2.91],[.38,-2.88],[.18,-2.43],[.16,-1.68],[.23,-.84],[.30,-.34],[.35,-.06],[.41,.035],[.48,-.015],[.55,-.23],[.64,-.48],[.73,-.56],[.81,-.40],[.87,-.15],[.94,-.015],[1,0]]:
+    [[0,0],[.12,-.18],[.27,-.77],[.47,-1.62],[.61,-2.05],[.64,-1.98],[.59,-1.73],[.47,-1.29],[.36,-.80],[.31,-.36],[.32,-.075],[.38,.035],[.44,-.015],[.53,-.24],[.64,-.49],[.73,-.56],[.82,-.38],[.88,-.13],[.94,-.015],[1,0]];
+   return S(local(a,3,loopEnabled?9:7,loopEnabled?.48:.51,loopEnabled?-1.20:-1.28,2));
+ }
+ if(ch==='y')return S(local(loopEnabled?[[0,0],[.20,-.62],[.38,-.41],[.48,.02],[.66,-.33],[.80,-.75],[.77,.22],[.65,1.23],[.44,1.86],[.21,1.85],[.09,1.43],[.20,.93],[.45,.45],[.76,.06],[1,0]]:[[0,0],[.20,-.72],[.53,.06],[.78,-.80],[.62,1.20],[.42,1.64],[.78,.18],[1,0]],6,9,.50,.45,2));
+ if(ch==='j')return S(local(loopEnabled?[[0,0],[.22,-.46],[.55,-.82],[.64,-.42],[.60,.45],[.47,1.32],[.26,1.94],[.03,1.86],[-.09,1.43],[.04,.97],[.34,.48],[.70,.12],[1,0]]:[[0,0],[.22,-.45],[.58,-.82],[.60,.85],[.33,1.29],[.10,.91],[.41,.38],[1,0]],4,8,.44,.50,2));
  if(ch==='i')return S([[0,0],[.24,-.47],[.57,-.82],[.58,-.08],[1,0]]);
- if(ch==='j')return S([[0,0],[.22,-.45],[.58,-.82],[.60,.85],[.33,1.29],[.10,.91],[.41,.38],[1,0]]);
- const dict={a:[[0,0],[.12,-.65],[.42,-.84],[.67,-.54],[.57,-.02],[.28,.03],[.25,-.48],[.77,-.8],[.88,-.04],[1,0]],
- b:[[0,0],[.16,-1.65],[.44,-2.5],[.60,-1.8],[.35,-.40],[.63,-.82],[.89,-.65],[.76,.09],[1,0]],
+ const dict={b:[[0,0],[.16,-1.65],[.44,-2.5],[.60,-1.8],[.35,-.40],[.63,-.82],[.89,-.65],[.76,.09],[1,0]],
  c:[[0,0],[.16,-.65],[.62,-.80],[.35,-.27],[.67,0],[1,0]],
- e:[[0,0],[.31,-.41],[.68,-.69],[.56,-.90],[.37,-.49],[.62,-.06],[1,0]],
  f:[[0,0],[.25,-1.1],[.64,-2.34],[.73,-1.86],[.46,-.11],[1,0]],
  h:[[0,0],[.28,-1.75],[.58,-2.34],[.48,-.47],[.76,-.73],[.91,-.55],[1,0]],
  k:[[0,0],[.25,-1.65],[.58,-2.5],[.51,-.3],[.83,-.81],[.58,-.31],[1,0]],
  m:[[0,0],[.14,-.7],[.39,-.54],[.48,.02],[.58,-.70],[.79,-.56],[.85,.02],[1,0]],
- n:[[0,0],[.24,-.72],[.59,-.54],[.69,.05],[1,0]],
- o:[[0,0],[.13,-.65],[.43,-.85],[.65,-.45],[.45,.06],[.17,-.3],[.67,-.76],[1,0]],
+ n:[[0,0],[.14,-.14],[.30,-.55],[.44,-.73],[.58,-.67],[.69,-.41],[.76,-.12],[.86,.015],[1,0]],
  p:[[0,0],[.20,-1.25],[.43,-2.03],[.45,-.12],[.76,-.66],[.93,-.28],[1,0]],
- q:[[0,0],[.13,-.65],[.47,-.82],[.67,-.3],[.42,.06],[.28,-.45],[.78,-.74],[.67,1.35],[1,0]],
  r:[[0,0],[.28,-.68],[.49,-.83],[.71,-.37],[1,0]],
- s:[[0,0],[.30,-.78],[.68,-.72],[.39,-.29],[.63,0],[1,0]],
+ s:[[0,0],[.18,-.16],[.42,-.60],[.68,-.68],[.78,-.48],[.60,-.26],[.36,-.16],[.46,-.06],[.72,.00],[1,-.02]],
  t:[[0,0],[.31,-1.39],[.63,-2.02],[.50,-.16],[.74,.08],[1,0]],
  u:[[0,0],[.18,-.65],[.27,0],[.66,-.69],[.67,.06],[1,0]],
  v:[[0,0],[.25,.04],[.66,-.75],[.80,-.12],[1,0]],
@@ -128,21 +262,26 @@ function motif(ch,r,w,h,loopEnabled){
  x:[[0,0],[.30,-.67],[.7,0],[.48,-.42],[.84,-.72],[1,0]],
  y:[[0,0],[.20,-.72],[.53,.06],[.78,-.80],[.62,1.20],[1,0]],
  z:[[0,0],[.57,-.74],[.24,.08],[.80,-.06],[1,0]]};
- return S(dict[ch]||[[0,0],[.35,-.55],[.72,-.08],[1,0]]);
+ const a=dict[ch]||[[0,0],[.35,-.55],[.72,-.08],[1,0]];
+ if('bkp'.includes(ch))return S(local(a,2,a.length-3,.50,-.65,1));
+ return S(a);
 }
 // V0.5: signature segments are single connected pen gestures, with preserved letter-scale loops.
 function generate(input,opt){
  const name=(input||'Alan Wake').trim()||'Alan Wake';
  const segments=parseSegments(name);
- const writer=random(hash(name+'|signature-writer-v05'));
- const take=random(hash(name+'|'+opt.seed+'|subtle-take-v05'));
+ const writer=random(hash(name+'|signature-writer-v06'));
+ const take=random(hash(name+'|'+opt.seed+'|subtle-take-v06'));
  const N=()=>normal(take);
  const structure=clamp((opt.struct??52)/100,0,1);
  const flow=clamp((opt.flow??72)/100,0,1);
  const micro=clamp((opt.micro??70)/100,0,1);
  const abbreviation=clamp(opt.ab/100,0,1);
  const tempo=clamp(opt.sp/100,0,1);
- const strokes=[], marks=[];
+ const circleSize=clamp((opt.bowl??72)/100,.45,1.40);
+ const xstretch=clamp((opt.xstretch??100)/100,.55,1.60);
+ const ystretch=clamp((opt.ystretch??100)/100,.55,1.60);
+ const strokes=[], marks=[], loopEvents=[];
  let x=0, baseline=0, countLoops=0, countMicro=0, terminal=null, tailJoin=null;
  function v(a,b){return {x:a,y:b}}
  function smoothBridge(p0,p1,run=6){
@@ -170,112 +309,262 @@ function generate(input,opt){
    const y0=baseline*.18+N()*.28;
    const size=si===0?1:(.80+writer()*.13);
    const skew=.09+writer()*.09;
-   const cap=(CAP[seg.cap]||CAP.A).map(([px,py])=>v(x+(px-py*skew)*size,y0+py*size));
-   const points=cap.slice();
-   let finish=points[points.length-1],maxx=Math.max(...cap.map(p=>p.x));
-   let curx=Math.max(maxx-3,finish.x+1.2),base=y0;
-   if(seg.tail.length){
-     const entrance=v(curx,base);
-     if(Math.hypot(entrance.x-finish.x,entrance.y-finish.y)>.2)
-       points.push(...smoothBridge(finish,entrance,Math.max(3,curx-finish.x)));
+   const transformCap=([px,py])=>v(x+(px-py*skew)*size,y0+py*size);
+   const baseCap=(CAP[seg.cap]||CAP.A).map(transformCap);
+   // Capital topology and the transition to the lowercase chain are independent.
+   // A plan defines ordered pen-down paths, plus an exit policy: direct, lift,
+   // or legacy connected transition. No ink is drawn during a pen lift.
+   const capSpec=(()=>{
+     const plan=(main,aux=[],join='direct',reentry=null)=>({
+       main:main.map(transformCap),aux:aux.map(part=>part.map(transformCap)),
+       join,reentry:reentry?transformCap(reentry):null
+     });
+     if(seg.cap==='H')return {join:'direct', main:baseCap,aux:[
+       [[2,-26],[3.8,-29],[7.5,-31.3],[11,-32],[13,-30.6],[12.1,-25.8],[9.5,-18],[6.5,-10],[3,-1],[1.2,4]],
+       [[4.7,-6],[6.6,-10.2],[9.5,-13.5],[14,-14.4],[20,-14.5],[23.3,-15],[25.4,-17]]
+     ].map(part=>part.map(transformCap))};
+     // P: top sweep -> clockwise bowl -> climb back up the left stem ->
+     // down the same stem -> near-baseline exit. Exactly one pen-down path.
+     if(seg.cap==='P')return plan([[0,-32],[8,-32.3],[18,-32.3],[25,-31.8],
+       [29,-29.3],[30,-25.4],[28.3,-20.8],[24.5,-16.3],[19,-12.8],
+       [13.5,-12.1],[10.5,-13.5],[10.2,-17.7],[11.6,-23.0],
+       [13.6,-28.8],[14,-30.6],[13.7,-30.0],[10.5,-23.0],[7.5,-14],
+       [4,-5],[1,3],[3.8,.3],[8,-1.8],[13,-2.4],[17,-.3],[20,0]],[], 'lift',[17,0.5]);
+     // N: one continuous rising / falling / rising gesture, ending in the air.
+     // Lowercase starts underneath the final diagonal, not after a fourth leg.
+     if(seg.cap==='N')return plan([[0,4],[4,-4],[10,-16],[16,-28],[17,-29.8],
+       [17.7,-28],[16.8,-20],[15.8,-10],[15.1,-2],[16.6,.8],[20,-1.4],
+       [26,-9],[34,-19],[42,-29]],[],'lift',[30,-.4]);
+     // X: upward diagonal first; then the crossing sweep, ending at the natural
+     // lowercase entry. Both actual strokes are simple, without retracing.
+     if(seg.cap==='X')return plan([[0,-26],[5,-30],[12,-28.8],[17,-23],
+       [21,-14],[26,-6],[32,0],[36,1],[40,0]],
+       [[[5,5],[14,-4],[24,-15],[34,-25],[40,-31]]]);
+     // K: independent descending stem, then upper-right arm, waist hook,
+     // and lower-right exit aligned with the lowercase baseline.
+     if(seg.cap==='K')return plan([[32,-27],[26,-22],[19,-16],[12,-10],[8,-8],
+       [5,-9],[3,-12],[2.8,-16],[5,-13],[10,-9],[16,-5],[22,-1],[26,2],
+       [29,2],[32,.3],[35,0]], [[[8,-32],[7.5,-24],[6.6,-15],[5.6,-6],[4.5,3]]]);
+     // Q: closed oval with a low-right tail that can continue into lowercase.
+     if(seg.cap==='Q')return plan([[20,-31],[12,-30],[5,-25],[2,-17],[3,-8],[9,0],[17,3],[25,-1],[28,-9],[27,-18],[22,-27],[16,-31],
+       [12,-29],[10,-22],[12,-12],[18,-5],[24,-2],[27,-1],[30,1],[33,2]],[]);
+     // Open-topped capitals keep their native high endpoint. Restart the
+     // lowercase near the underside; do not force a long vertical connector.
+     const reentries={O:[27,0],U:[27,0],V:[24,0],W:[29,0]};
+     if(Object.prototype.hasOwnProperty.call(reentries,seg.cap))
+       return {join:'lift',main:baseCap,aux:[],reentry:transformCap(reentries[seg.cap])};
+     // T / F are legitimately crossed forms. A short crossbar and the main
+     // stroke have distinct pen events, while the final downstroke can join.
+     if(seg.cap==='T')return plan([[16,-30],[13,-20],[9,-9],[7,-1],[8,2],[14,2],[22,0]],
+       [[[0,-29],[10,-31],[23,-31.5],[32,-29.8]]]);
+     if(seg.cap==='F')return plan([[17,-23],[14,-15],[11,-6],[8,2],[6,9]],
+       [[[4,-23],[12,-25],[22,-25],[30,-23]],[[10,-7],[16,-9],[24,-9]]], 'lift',[11,2.5]);
+     return {join:'legacy',main:baseCap,aux:[]};
+   })();
+   const lifted=capSpec.join==='lift';
+   const phase=writer()*8;
+   const allCapPts=capSpec.aux.flat().concat(capSpec.main);
+   const maxx=Math.max(...allCapPts.map(p=>p.x));
+   let points=[], finish=capSpec.main[capSpec.main.length-1], curx=0, base=y0;
+   if(lifted){
+     if(seg.tail.length){
+       const re=capSpec.reentry||v(maxx+2.4,y0);
+       // F: preserve the capital geometry, then lift and advance at least two
+       // ordinary lowercase widths. Width is in lowercase/world coordinates,
+       // not scaled by the capital's size. No RNG consumption or ink bridge.
+       const fClearance=seg.cap==='F' ? 2.2*9.6*(1.12-.45*abbreviation)*(1-.11*tempo)*xstretch : 0;
+       curx=re.x+fClearance; base=re.y; points=[v(curx,base)];
+     }
+   }else{
+     points=capSpec.main.slice();
+     finish=points[points.length-1];
+     curx=Math.max(maxx-3,finish.x+1.2); base=y0;
+     if(capSpec.join==='direct'){curx=finish.x;base=finish.y;}
+     else if(seg.tail.length){
+       const entrance=v(curx,base);
+       if(Math.hypot(entrance.x-finish.x,entrance.y-finish.y)>.2)
+         points.push(...smoothBridge(finish,entrance,Math.max(3,curx-finish.x)));
+     }
    }
    for(let i=0;i<seg.tail.length;i++){
      const ch=seg.tail[i];
-     const special='gdl'.includes(ch),loopActive=special&&!!opt.loops[ch];
-     // Compress horizontally rather than moving the cursor backwards. Every glyph
-     // starts at the exact endpoint of its predecessor.
-     let letterWidth=(special?(ch==='g'?14.6:13):('ij'.includes(ch)?7.2:9.6));
+     const special='gdlyjhpb'.includes(ch),loopActive=ch!=='b'&&special&&!!opt.loops[ch];
+     let letterWidth=(special?(ch==='g'||ch==='y'||ch==='j'||ch==='p'?14.6:13.1):('ij'.includes(ch)?7.2:9.6));
      letterWidth*=1.12-.45*abbreviation;
      letterWidth*=1-.11*tempo;
-     letterWidth*=.94+writer()*.12;
-     const height=(ch==='g'?9.1:9.0)*(.92+writer()*.16);
-     if(loopActive){letterWidth*=1.12;countLoops++}
-     const raw=motif(ch,writer,letterWidth,height,loopActive);
-     // Non-specified letters become shorter gesture fragments at lower retention.
-     // Recognizable micro-loops are protected. They are not tied to g/d/l toggles.
-     const protectedMicro='aeomnsur'.includes(ch);
-     const retain=special?1:protectedMicro?(.78+.22*structure)*(1-.14*flow):(.35+.65*structure)*(1-.54*flow);
+     letterWidth*= (.94+writer()*.12)*xstretch;
+     const height=((ch==='g'||ch==='y'||ch==='j')?9.3:9.0)*(.92+writer()*.16)*ystretch;
+     if(loopActive){letterWidth*=1.12;countLoops++;loopEvents.push({segment:si,index:i,letter:ch,kind:'large'});}
+     if(BODY_LOOP_LETTERS.includes(ch)){countMicro++;loopEvents.push({segment:si,index:i,letter:ch,kind:'body'});}
+     if(ch==='p'){countMicro++;loopEvents.push({segment:si,index:i,letter:ch,kind:'descender'});}
+     if(OPEN_BODY_LETTERS.includes(ch))loopEvents.push({segment:si,index:i,letter:ch,kind:'open-body'});
+     if('hdl'.includes(ch)&&!loopActive){countMicro++;loopEvents.push({segment:si,index:i,letter:ch,kind:'ascender'});}
+     if(ch==='h'&&loopActive&&points.length){const E=points[points.length-1];curx=E.x;base=E.y;}
+     const raw=motif(ch,writer,letterWidth,height,loopActive,circleSize);
+     const protectedMicro='aeomnsurcvw'.includes(ch);
+     const retain=special||ch==='s'?1:(protectedMicro||BODY_LOOP_LETTERS.includes(ch))?(.80+.20*structure)*(1-.10*flow):(.28+.72*structure)*(1-.56*flow);
      const pts=raw.map((q,k)=>{
        const t=k/Math.max(1,raw.length-1);
        const quickY=-height*(.23+ .14*Math.sin(Math.PI*t*1.8));
        let y=q.y*retain+quickY*(1-retain)*Math.sin(Math.PI*t);
        let xp=q.x;
-       // Lower displacement across faster signatures, preserving small curls.
        y*=1-(1-structure)*.10;
        return v(curx+xp,base+y);
      });
-     // Start is the end of the previous motif; do not add another M / gap.
-     pts[0]=points[points.length-1];
-     // Natural micro loops: preserve authored turns in a/o/e/... and make a few
-     // additional shallow curls. Micro geometry stays even with tall loops off.
-     if(protectedMicro && i>0 && i<seg.tail.length-1 && writer()<(.11+.21*micro)){
+     if((ch==='n'||((ch==='h'||ch==='b')&&!loopActive)) && points.length){
+       const entry=points[points.length-1];
+       const dx=entry.x-pts[0].x,dy=entry.y-pts[0].y;
+       for(let k=0;k<pts.length;k++){
+         const t=k/(pts.length-1),u=Math.max(0,1-t/.5),blend=u*u*(3-2*u);
+         pts[k].x+=dx*blend;pts[k].y+=dy*blend;
+       }
+     }
+     if(points.length) pts[0]=points[points.length-1];
+     const addCurl=protectedMicro && i>0 && i<seg.tail.length-1 && writer()<(.11+.21*micro);
+     if(addCurl && ch!=='n' && ch!=='s' && !BODY_LOOP_LETTERS.includes(ch) && !OPEN_BODY_LETTERS.includes(ch)){
        const k=Math.max(1,Math.min(pts.length-2,Math.round(pts.length*.4)));
        const A=pts[k],B=pts[k+1];
        const cx=(A.x+B.x)*.5,cy=(A.y+B.y)*.5;
-       const r=1.05+micro*1.3;
-       // A single small closed curl replacing a local segment, with a matched
-       // entry/exit. Existing a/o/g/d letter loops remain intact.
-       const curl=[v(cx-r*.32,cy-r*.78),v(cx-r*.74,cy-r*.28),
-                   v(cx-r*.13,cy+r*.40),v(cx+r*.48,cy-r*.48)];
-       pts.splice(k+1,0,...curl);countMicro++;
+       const rx=(1.05+micro*1.3)*circleSize*xstretch,ry=(1.05+micro*1.3)*circleSize*ystretch;
+       const curl=[v(cx-rx*.32,cy-ry*.78),v(cx-rx*.74,cy-ry*.28),
+                   v(cx-rx*.13,cy+ry*.40),v(cx+rx*.48,cy-ry*.48)];
+       pts.splice(k+1,0,...curl);countMicro++;loopEvents.push({segment:si,index:i,letter:ch,kind:'extra'});
      }
-     points.push(...pts.slice(1));
-     // Mark positions use real letter coordinates; drawn as a separate pen lift.
+     if(points.length) points.push(...pts.slice(1)); else points=pts.slice();
      if(ch==='i'||ch==='j'){
-       const mx=curx+letterWidth*.58+N()*.55,my=base-15.4+N()*.7;
+       const mx=curx+letterWidth*.58+N()*.55,my=base-15.4*ystretch+N()*.7;
        const asDash=take()<opt.dash/100;
        if(asDash){const len=2.3+take()*1.7,angle=-.48+N()*.12;
          marks.push({type:'dash',x:mx,y:my,dx:len*Math.cos(angle),dy:len*Math.sin(angle)});
        }else marks.push({type:'dot',x:mx,y:my,r:.86+take()*.16});
      }
-     curx+=letterWidth; // no overlap/backtracking jumps
+     curx+=letterWidth;
      base=base*(.78+.16*flow)+y0*(.22-.16*flow)+N()*.10*(1-flow);
-     // Connect baseline to current glyph endpoint by minimal drift rather than
-     // snapping, maintaining one smooth curve across letter boundaries.
-     const last=points[points.length-1];
-     if(Math.abs(last.y-base)>1.2){
-        points.push(v(last.x+.32,last.y*.55+base*.45));
+     if(points.length){
+       const last=points[points.length-1];
+       if(Math.abs(last.y-base)>1.2){ points.push(v(last.x+.32,last.y*.55+base*.45)); }
      }
    }
-   strokes.push({type:'stroke',tag:'segment',points,seed:writer()*8});
-   x=points[points.length-1].x+2.3;
-   baseline=points[points.length-1].y;
+   for(let hi=0;hi<capSpec.aux.length;hi++)strokes.push({type:'stroke',tag:'capital-part',points:capSpec.aux[hi],seed:phase+hi*.35});
+   if(lifted)strokes.push({type:'stroke',tag:'capital-main',points:capSpec.main,seed:phase+.22});
+   if(!lifted || points.length>1)strokes.push({type:'stroke',tag:'segment',points:points,seed:phase});
+   const endpoint=(!lifted || points.length>1)?points[points.length-1]:capSpec.main[capSpec.main.length-1];
+   x=(lifted||seg.cap==='P'?Math.max(maxx,endpoint.x):endpoint.x)+2.3;
+   baseline=(!lifted || points.length>1)?endpoint.y:y0;
  }
- // Writer-specific low-frequency trajectory distortion. No per-point jitter.
+ // Writer-specific low-frequency trajectory distortion. v0.6 switches to
+ // arc-length drift + turn-aware damping, so loops stay intact while the whole
+ // signature still feels hand-carried rather than plotter-clean.
  for(const stroke of strokes){
+   // Auxiliary H strokes do not consume the shared take RNG. Their junctions
+   // remain anchored; the main stroke retains the established subtle drift.
+   if(stroke.tag==='capital-part')continue;
    const k0=N(),k1=N(),k2=N(),k3=N();
-   const amp=(1-flow)*.36+.14;
-   let distance=0;
-   let prev=stroke.points[0];
+   const amp=(1-flow)*.28+.10;
+   let distance=0,prev=stroke.points[0];
    stroke.points=stroke.points.map((p,i)=>{
      if(i)distance+=Math.hypot(p.x-prev.x,p.y-prev.y);
      prev=p;
-     const edge=(i===0||i===stroke.points.length-1)?0:.75;
-     const xShift=edge*amp*(k0*Math.sin(distance/24+.4)+.26*k2*Math.sin(distance/11));
-     const yShift=edge*amp*(k1*Math.sin(distance/26+.2)+.22*k3*Math.sin(distance/13));
+     const corner=(i>0 && i<stroke.points.length-1)?turning(stroke.points,i):0;
+     const preserve=1-clamp(corner*1.6,0,.8);
+     const edge=(i===0||i===stroke.points.length-1)?0:.82;
+     const drift=edge*preserve*amp;
+     const xShift=drift*(k0*Math.sin(distance/27+.35)+.18*k2*Math.sin(distance/12.5));
+     const yShift=drift*(k1*Math.sin(distance/30+.18)+.16*k3*Math.sin(distance/15.0));
      return v(p.x+xShift,p.y+yShift);
    });
  }
- // Terminal flourish: SAME polygon / SAME stroke, starting at the actual final
- // endpoint, with its cubic start tangent copied from the final body segment.
+ // Terminal flourish: same pen stroke, optionally switching to a loose
+ // orbit mode that keeps one continuous line while looping around the body.
  if(strokes.length){
    const s=strokes[strokes.length-1],body=s.points,join=body[body.length-1];
    terminal=v(join.x,join.y);
-   if(opt.fl>1){
+   if(opt.fl>1 && (s.tag!=='capital-main'||opt.tailorbit)){
      const T=tangent(body),strength=clamp(opt.fl/100,0,1),length=15+strength*71;
-     // Hand leaves last lower-case stroke, continues along its existing direction,
-     // then gradually sweeps right. No detached path or forced baseline reset.
-     const bend=7+strength*13;
-     const p1=v(join.x+T.x*bend,join.y+T.y*bend);
-     const yLift=(5+strength*3)*(-.38+.18*N());
-     const p2=v(join.x+length*.55,join.y+yLift+1.6);
-     const end=v(join.x+length,join.y+yLift-3.2-strength*1.8);
-     const samples=sampleCubic(join,p1,p2,end,Math.max(16,Math.round(length/2)));
-     tailJoin=v(samples[0].x,samples[0].y); // exact equality by construction
-     s.points.push(...samples.slice(1));
+     tailJoin=v(join.x,join.y);
+     if(opt.tailorbit){
+       // Non-periodic alternating lobes. The crossing and outside turn of
+       // every lobe are independently drawn; only their tangents are shared.
+       // Stop by geometric arc length, not a discrete number of turns.
+       const R=random(hash(name+'|'+opt.seed+'|free-orbit-v076'));
+       const jitter=()=>normal(R),noise=clamp((opt.orbitnoise??85)/100,0,1);
+       const multiplier=clamp(opt.orbitcount??18,1,60);
+       const pts=strokes.flatMap(st=>st.points);
+       const minX=Math.min(...pts.map(p=>p.x)),maxX=Math.max(...pts.map(p=>p.x));
+       const minY=Math.min(...pts.map(p=>p.y)),maxY=Math.max(...pts.map(p=>p.y));
+       const w=Math.max(8,maxX-minX),h=Math.max(10,maxY-minY);
+       const cy=minY+h*.60, pad=3+strength*7;
+       const amp=Math.max(6,h*(.30+strength*.30),Math.sqrt(w)*.9);
+       const budget=length*multiplier*clamp(1+noise*.18*jitter(),.65,1.35);
+       const unit=(dx,dy)=>{const m=Math.hypot(dx,dy)||1;return v(dx/m,dy/m)};
+       let remaining=budget, prev=join, D=unit(join.x-body[Math.max(0,body.length-2)].x,join.y-body[Math.max(0,body.length-2)].y);
+       let last=join;
+       // Every cubic uses the incoming tangent and the next anchor's tangent.
+       // Truncate the sampled final cubic at the precise remaining arc length.
+       const append=(target,E,h1,h2)=>{
+         if(remaining<=1e-7)return false;
+         const span=Math.hypot(target.x-prev.x,target.y-prev.y);
+         const samples=sampleCubic(prev,v(prev.x+D.x*h1,prev.y+D.y*h1),
+           v(target.x-E.x*h2,target.y-E.y*h2),target,Math.max(14,Math.ceil((span+h1+h2)/.70)));
+         for(let i=1;i<samples.length;i++){
+           const p=samples[i],d=Math.hypot(p.x-last.x,p.y-last.y);
+           if(d<1e-9)continue;
+           if(d>=remaining){const k=remaining/d;s.points.push(v(last.x+(p.x-last.x)*k,last.y+(p.y-last.y)*k));remaining=0;return false;}
+           s.points.push(p);remaining-=d;last=p;
+         }
+         prev=target;D=E;return true;
+       };
+       // Strong asymmetry: crossing alternates between independently drawn
+       // left/right-biased regions. Each outer end reaches the name boundary.
+       let crossFrac=R()<.5?.28:.72;
+       let sign=R()<.5?-1:1;
+       const cross=(side,first=false)=>{
+         if(!first){
+           const preferred=crossFrac<.5?.70:.30;
+           crossFrac=clamp(preferred+(R()-.5)*(.16+.23*noise),.13,.87);
+         }
+         const y=cy+amp*((R()-.5)*(.60+1.3*noise)+.22*side);
+         return v(minX+w*crossFrac,y);
+       };
+       const crossingDirection=(side)=>unit(side,sign*(.30+R()*(.48+.65*noise)));
+       const outer=(side)=>{
+         const extension=pad+noise*(1+R()*Math.min(w*.06,12));
+         return v(side>0?maxX+extension:minX-extension,
+           cy+amp*((R()-.5)*(.65+1.55*noise)+side*(.18+.45*noise)));
+       };
+       const turnDir=(side)=>unit(side*(R()-.5)*(.18+.7*noise),-sign);
+       const crossHandle=(p,q)=>Math.max(2,Math.min(Math.abs(q.x-p.x)*(.35+R()*.20),amp*2.4));
+       const turnHandle=()=>amp*(.65+R()*(.70+noise*.90));
+       // Launch from the actual pen tip, around the right end, toward first crossing.
+       let target=outer(1),E=turnDir(1);
+       let launch=Math.max(2,Math.min(amp*.85,Math.hypot(target.x-prev.x,target.y-prev.y)*.72));
+       append(target,E,launch,Math.max(2,amp*.45));
+       let c=cross(-1,true),C=crossingDirection(-1);
+       append(c,C,turnHandle(),crossHandle(prev,c));
+       // Alternating lobes, with different inclinations, vertical spans and
+       // crossing positions on every pass; no periodic phase or final outro.
+       for(let i=0;remaining>1e-7&&i<600;i++){
+         const side=i%2===0?-1:1;
+         target=outer(side); E=turnDir(side);
+         if(!append(target,E,crossHandle(prev,target),turnHandle()))break;
+         if(R()<.10*noise)sign*=-1; // rare change of sweep orientation
+         c=cross(-side);C=crossingDirection(-side);
+         if(!append(c,C,turnHandle(),crossHandle(prev,c)))break;
+       }
+       // Expose measured budget for regression tests; ordinary signature unchanged.
+       s.orbitLength=budget-remaining;s.orbitTarget=budget;
+     }else{
+       const bend=7+strength*13;
+       const p1=v(join.x+T.x*bend,join.y+T.y*bend);
+       const yLift=(5+strength*3)*(-.38+.18*N());
+       const p2=v(join.x+length*.55,join.y+yLift+1.6);
+       const end=v(join.x+length,join.y+yLift-3.2-strength*1.8);
+       const samples=sampleCubic(join,p1,p2,end,Math.max(16,Math.round(length/2)));
+       s.points.push(...samples.slice(1));
+     }
    }
  }
- return {strokes:strokes.concat(marks),segments:segments.length,loops:countLoops,micro:countMicro,marks:marks.length,terminal,tailJoin};
+ return {strokes:strokes.concat(marks),segments:segments.length,loops:countLoops,micro:countMicro,marks:marks.length,terminal,tailJoin,loopEvents};
 }
 
 function render(name,opt){
@@ -294,23 +583,28 @@ function render(name,opt){
  return{svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" role="img" aria-label="签名字迹"><rect width="880" height="220" fill="white"/><g transform="translate('+ox.toFixed(3)+' '+oy.toFixed(3)+') scale('+factor.toFixed(4)+')">'+paths+'</g></svg>',...data};
 }
 let seed=0,activeName='Alan Wake',lastSVG='';
-function getOptions(){return {flow:+val('sig-flow').value,struct:+val('sig-struct').value,micro:+val('sig-micro').value,ab:+val('sig-ab').value,sp:+val('sig-sp').value,fl:+val('sig-fl').value,sm:+val('sig-sm').value,bw:+val('sig-bw').value,pr:+val('sig-pr').value,dash:+val('sig-dash').value,loops:{g:val('sig-g').checked,d:val('sig-d').checked,l:val('sig-l').checked},seed}}
+function getOptions(){const drive=+val('sig-drive').value;const t=(drive-50)/50;const sp=clamp(Math.round(79+t*21),0,100);const ab=clamp(Math.round(94+t*6),25,100);const xstretch=clamp(Math.round(100+t*45),55,160);return {bowl:+val('sig-bowl').value,xstretch,ystretch:+val('sig-ystretch').value,flow:100,struct:+val('sig-struct').value,micro:100,ab,sp,fl:+val('sig-fl').value,tailorbit:val('sig-tailorbit').checked,orbitcount:+val('sig-orbitcount').value,orbitnoise:+val('sig-orbitnoise').value,sm:100,bw:+val('sig-bw').value,pr:+val('sig-pr').value,dash:+val('sig-dash').value,drive,loops:{g:val('sig-g').checked,d:val('sig-d').checked,l:val('sig-l').checked,y:val('sig-y').checked,j:val('sig-j').checked,h:val('sig-h').checked},seed}}
 function update(){
  const o=getOptions(),name=val('sig-name').value;
  const out=render(name,o),view=$('#sig-view');
  view.innerHTML=out.svg;lastSVG=out.svg;
- $('#sig-metrics').textContent=out.segments+' 段起笔 · '+out.loops+' 个大回环 · '+out.marks+' 个点划';
+ $('#sig-metrics').textContent=out.segments+' 段起笔 · '+out.loops+' 个大回环 · '+out.micro+' 个小回环 · '+out.marks+' 个点划';
+ $('#sig-metrics').title='小回环按生成笔势计数：主体圈 '+out.loopEvents.filter(e=>e.kind==='body').length+'，上行微回环 '+out.loopEvents.filter(e=>e.kind==='ascender').length+'，下行微回环 '+out.loopEvents.filter(e=>e.kind==='descender').length+'，开放主体 '+out.loopEvents.filter(e=>e.kind==='open-body').length+'，附加小卷 '+out.loopEvents.filter(e=>e.kind==='extra').length;
  $('#sig-seed').textContent='S'+String(seed).padStart(3,'0');
- for(const [key,suffix] of [['flow','%'],['struct','%'],['micro','%'],['ab','%'],['sp','%'],['fl','%'],['sm','%'],['dash','%'],['pr','%']])$('#sig-'+key+'v').textContent=o[key]+suffix;
+ for(const [key,suffix] of [['bowl','%'],['ystretch','%'],['struct','%'],['drive','%'],['fl','%'],['dash','%'],['pr','%']])$('#sig-'+key+'v').textContent=o[key]+suffix;
  $('#sig-bwv').textContent=o.bw.toFixed(2);
+ $('#sig-orbitcountv').textContent=o.orbitcount.toFixed(1)+'×';$('#sig-orbitnoisev').textContent=o.orbitnoise+'%';
+ for(const id of ['sig-orbitcount','sig-orbitnoise'])val(id).disabled=!o.tailorbit;
+ $('#sig-orbit-controls').style.opacity=o.tailorbit?'1':'.45';
  $('#sig-nameprint').textContent=name||'Alan Wake';
 }
 root.querySelectorAll('input').forEach(input=>input.addEventListener('input',update));
 $('#sig-again').addEventListener('click',()=>{seed++;update()});
-$('#sig-reset').addEventListener('click',()=>{seed=0;for(const [id,value] of Object.entries({'sig-flow':'89','sig-struct':'24','sig-micro':'70','sig-ab':'94','sig-sp':'79','sig-fl':'35','sig-sm':'94','sig-bw':'1.15','sig-pr':'4','sig-dash':'42','sig-name':'Margie Golding'}))val(id).value=value;for(const x of ['g','d','l'])val('sig-'+x).checked=false;update()});
+$('#sig-reset').addEventListener('click',()=>{seed=0;for(const [id,value] of Object.entries({'sig-bowl':'72','sig-ystretch':'100','sig-struct':'22','sig-drive':'50','sig-fl':'35','sig-bw':'1.15','sig-pr':'4','sig-dash':'42','sig-orbitcount':'18','sig-orbitnoise':'85','sig-name':'Hayley Joy'}))val(id).value=value;for(const x of ['g','d','l','y','j','h'])val('sig-'+x).checked=x==='h';val('sig-tailorbit').checked=false;update()});
 root.querySelectorAll('[data-example]').forEach(btn=>btn.addEventListener('click',()=>{val('sig-name').value=btn.dataset.example;seed=0;update()}));
 $('#sig-save').addEventListener('click',()=>{let blob=new Blob([lastSVG],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='signature-'+(val('sig-name').value.trim().replace(/[^a-zA-Z0-9_-]+/g,'-')||'preview')+'.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)});
 update();
-window.SignatureMotionLabV5={render,generate,getOptions,update};
+window.SignatureMotionLabV6={render,generate,getOptions,update,motif};
+window.SignatureMotionLabV080=window.SignatureMotionLabV6;
 })();
 </script></body></html>
