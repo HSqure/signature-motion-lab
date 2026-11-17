@@ -52,7 +52,7 @@ cd signature-motion-lab
         → SVG
 ```
 
-**v0.8.0 技术报告：** [基于参数化笔势的程序化草签生成](docs/technical-report.zh-CN.md)。报告涵盖大写笔画拓扑、局部圈体变换、快写参数映射、弧长重采样、受控随机性与非周期尾笔。
+**v0.8.0 技术博客：** [从姓名到笔迹：Signature Motion Lab 的程序化草签生成算法](docs/technical-report.zh-CN.md)。从问题建模、运动原语、笔势合成到墨迹渲染，完整介绍生成管线、数学模型与文稿系统接入。
 
 当前限制：算法尚未接受真人笔迹数据分布评估，中文姓名生成支持不完善，切线连续性仅近似处理；它适合视觉实验，不适合取证或签名验证。
 
@@ -62,7 +62,8 @@ cd signature-motion-lab
 signature-motion-lab/
 ├── index.html                   # 离线实验台，含生成算法和交互界面
 ├── docs/
-│   └── technical-report.zh-CN.md
+│   ├── technical-report.zh-CN.md
+│   └── figures/               # 技术博客配套矢量插图
 ├── assets/
 │   ├── preview.png             # v0.5 历史预览
 │   ├── sample-grid-v080.svg     # v0.8.0 十组签名图册
